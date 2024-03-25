@@ -1,0 +1,110 @@
+.main-heading{
+    text-align: center;
+    font-size: 45px;
+    margin-right: 20px;
+    /* margin-inline: 34vw; */
+}
+.quranverse{
+    text-align: center;
+    width: 85vw;
+    margin-inline: 6vw;
+    padding: 7px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-weight: 500;
+    color: rgb(29,29,31);
+}
+.quranverse>p:first-child{
+    font-size: 25px;
+    margin-inline:60px ;
+}
+.quranverse>p:nth-child(2){
+    margin-left: 20px;
+}
+.quranverse>p:last-child{
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.eligible{
+    text-align: left;
+    width: 85vw;
+    margin-top: 0px;
+    margin-inline: 6vw;
+    padding-bottom:10px;
+    border-bottom: 1px solid rgb(50, 50, 51, 0.2);
+    color: rgb(29,29,31);
+    font-weight: 500;
+}
+
+.forminputs{
+    width: 85vw;
+    margin-inline: 6vw;
+}
+.forminputs>p{
+    color: rgb(29,29,31);
+    font-weight: 400;
+}
+.criteria>h3>span{
+    color: rgb(29,29,31);
+    font-weight: 400;
+    font-size: 15px;
+    margin-left: 10px;
+}
+.criteria>p{
+    color: rgb(29,29,31);
+    font-weight: 500;
+}
+
+.calculator{
+    width: 85vw;
+    border: 2px solid rgb(50, 50, 51, 0.3);
+    border-radius: 3px;
+    padding: 20px 20px ;
+}
+
+.value-inputs{
+    width: 45vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.value-inputs>input{
+    width: 15vw;
+    height: 30px;
+    cursor: pointer;
+    border: 1px solid rgb(50, 50, 51, 0.4);
+    border-radius: 5px;
+    padding: 5px;
+}
+.final-amount{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color:rgb(253,251,246);
+}
+.final-amount>div>h2,.final-amount>div>h3{
+   font-weight: 500;
+}
+.final-amount>div:first-child{
+    margin-right: 30vw;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.netvalue{
+    font-size: 22px;
+}
+.zakat{
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(43, 216, 43);
+}
