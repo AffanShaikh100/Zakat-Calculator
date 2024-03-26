@@ -71,6 +71,7 @@
         flex-wrap: wrap;
         width: 83vw !important;
         padding-top: 10px;
+        padding-bottom: 15px;
     }
     .footerdiv>p{
         font-size: 11px !important;
