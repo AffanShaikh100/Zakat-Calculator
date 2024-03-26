@@ -87,6 +87,7 @@
     margin-top: 20px;
     padding: 20px;
     background-color:rgb(253,251,246);
+    border-radius: 5px;
 }
 .final-amount>div>h2,.final-amount>div>h3{
    font-weight: 500;
@@ -107,4 +108,27 @@ input::-webkit-inner-spin-button {
     font-size: 30px;
     font-weight: 700;
     color: rgb(43, 216, 43);
+}
+.footerdiv{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 88vw;
+    margin-inline: 6vw;
+    margin-top: 30px;
+    border-top: 1px solid rgb(50, 50, 51, 0.2);
+}
+.footerdiv>p{
+    color: black;
+    font-weight: 500;
+    font-size: 14px;
+}
+.footerdiv>p:first-child{
+    margin-right: 40px;
+}
+.footerdiv>p:nth-child(2){
+    margin-right: 10px;
+}
+.footerdiv>p:last-child{
+    margin-left: 51vw;
 }
