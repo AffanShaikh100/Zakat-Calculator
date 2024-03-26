@@ -55,6 +55,9 @@
         width: 72vw !important;
         margin-right: 40px !important;
     }
+    .calculator>p{
+        font-size: 13px !important;
+    }
     .calculator>h4{
         font-size: 16px;
     }
