@@ -1,9 +1,6 @@
-import React from "react";
-import { useState,useEffect } from "react";
+import React, { useState } from "react";
 
-
-const Calculator = () =>{
-  // main input value usestate
+const Calculator = () => {
   const [value, setValue] = useState({
     silverrs: 0,
     goldsilver: 0,
@@ -14,116 +11,88 @@ const Calculator = () =>{
     loan: 0,
   });
 
-  
-  const [zakat, setZakat] = useState(0);
-  const [netvalue, setNetValue] = useState(0);
-
-  // function to call when value usestate is updated
-  useEffect(() => {
-    calculatezakat();
-  }, [value]);
-
-  // function to call when netvalue is updated
-  useEffect(() => {
-    changeZakat();
-  }, [netvalue]);
-
   function handleInput(e) {
     const numberv = parseFloat(e.target.value);
     setValue({ ...value, [e.target.name]: numberv || 0 });
   }
 
-  //this function help us the stop the input value getting manipulated by scroll of mouse when input is on focus
-  function scrollShut(event) {
-    event.target.blur();
+  function scrollShut(e) {
+    e.target.blur();
   }
 
-  function changeZakat() {
-    let zakc;
-    let silmarket = 612.36*value.silverrs;
-    if (typeof netvalue === "string") {
-      zakc = parseFloat(netvalue.replace(/,/g, ""));
-    } else {
-      zakc = netvalue;
-    }
+  // calculate net worth
+  const netAmount =
+    value.goldsilver +
+    value.cash +
+    value.bankcash +
+    value.investment +
+    value.property -
+    value.loan;
 
-    if (zakc > silmarket) {
-      let finalzakat = zakc * 0.025;
-      let zakc2 = finalzakat.toLocaleString("en-IN");
-      setZakat(zakc2);
-    } else {
-      setZakat(0);
-    }
-  }
+  const netvalue = netAmount.toLocaleString("en-IN");
 
-  function calculatezakat() {
-    let additionv = value.goldsilver + value.cash + value.bankcash +
-                    value.investment + value.property - value.loan;
-    let netc = additionv.toLocaleString("en-IN");
-    setNetValue(netc);
-  }
+  // calculate zakat
+  const silverMarketValue = 612.36 * value.silverrs;
+  const zakat =
+    netAmount > silverMarketValue
+      ? (netAmount * 0.025).toLocaleString("en-IN")
+      : 0;
 
   return (
-  
     <div className="calculator">
-    
       <div className="value-inputs">
-        <h4>Input today's silver rate per grams : </h4>
+        <h4>Input today's silver rate per grams :</h4>
         <input
-          onWheel={scrollShut}
+          type="number"
           name="silverrs"
-          type="number"
           placeholder="Rs."
-          // value={value.goldsilver}
-          onChange={handleInput}
-        />
-      </div>
-
-      <h4>Posessions (Money,Goods & Property)</h4>
-      <div className="value-inputs">
-        <p>Value of Gold & Silver you have : </p>
-        <input
           onWheel={scrollShut}
-          name="goldsilver"
+          onChange={handleInput}
+        />
+      </div>
+
+      <h4>Possessions (Money, Goods & Property)</h4>
+
+      <div className="value-inputs">
+        <p>Value of Gold & Silver you have :</p>
+        <input
           type="number"
+          name="goldsilver"
           placeholder="Rs."
-          // value={value.goldsilver}
+          onWheel={scrollShut}
           onChange={handleInput}
         />
       </div>
 
       <div className="value-inputs">
-        <p>Cash at Home: </p>
+        <p>Cash at Home :</p>
         <input
           type="number"
           name="cash"
-          onWheel={scrollShut}
           placeholder="Rs."
-          // value={value.cash}
+          onWheel={scrollShut}
           onChange={handleInput}
         />
       </div>
 
       <div className="value-inputs">
-        <p>Cash at Bank Account : </p>
+        <p>Cash at Bank Account :</p>
         <input
           type="number"
-          onWheel={scrollShut}
-          placeholder="Rs."
           name="bankcash"
-          // value={value.bankcash}
+          placeholder="Rs."
+          onWheel={scrollShut}
           onChange={handleInput}
         />
       </div>
 
       <div className="value-inputs">
-        <p>Any Investments & Share Value : </p>
+        <p>Any Investments & Share Value :</p>
         <input
           type="number"
-          onWheel={scrollShut}
-          placeholder="Rs."
           name="investment"
-          // value={value.investment}
+          placeholder="Rs."
+          onWheel={scrollShut}
           onChange={handleInput}
         />
       </div>
@@ -132,22 +101,22 @@ const Calculator = () =>{
         <p>Value of goods & properties for business :</p>
         <input
           type="number"
-          onWheel={scrollShut}
-          placeholder="Rs."
           name="property"
-          // value={value.property}
+          placeholder="Rs."
+          onWheel={scrollShut}
           onChange={handleInput}
         />
       </div>
 
       <h4>Minus Liabilities (Deductions)</h4>
+
       <div className="value-inputs">
         <p>Total repayable Loan/Debts you have :(One Lunar year)</p>
         <input
           type="number"
-          onWheel={scrollShut}
           name="loan"
           placeholder="Rs."
+          onWheel={scrollShut}
           onChange={handleInput}
         />
       </div>
@@ -159,15 +128,17 @@ const Calculator = () =>{
         </div>
 
         <div>
-          <h2>Zakat Payable:</h2>
+          <h2>Zakat Payable :</h2>
           <p className="zakat">Rs.{zakat}</p>
         </div>
       </div>
 
-      <p className="disclaimer">Disclaimer: If you are unsure about your Zakat calculation or the details you entered, please consult your local Imam or Mufti.</p>
-
+      <p className="disclaimer">
+        Disclaimer: If you are unsure about your Zakat calculation or the details
+        you entered, please consult your local Imam or Mufti.
+      </p>
     </div>
   );
-}
+};
 
-export default Calculator
+export default Calculator;
