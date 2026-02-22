@@ -166,7 +166,7 @@ const Calculator = () =>{
         </div>
       </div>
 
-      <p>Disclaimer: For any further clarifications or more details on Zakat calculations, kindly contact your local Imam / Mufti</p>
+      <p className="disclaimer">Disclaimer: If you are unsure about your Zakat calculation or the details you entered, please consult your local Imam or Mufti.</p>
 
     </div>
   );

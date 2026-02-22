@@ -67,6 +67,12 @@
     font-size: 15px;
     margin-left: 7px;
 }
+
+.disclaimer{
+    color: red;
+    text-decoration: underline;
+}
+
 .value-inputs{
     width: 45vw;
     display: flex;
