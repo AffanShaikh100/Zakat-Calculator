@@ -49,7 +49,6 @@ const Calculator = () =>{
 
     if (zakc > silmarket) {
       let finalzakat = zakc * 0.025;
-      let testingh = finalzakat;
       let zakc2 = finalzakat.toLocaleString("en-IN");
       setZakat(zakc2);
     } else {
@@ -80,7 +79,6 @@ const Calculator = () =>{
         />
       </div>
 
-      <h4></h4>
       <h4>Posessions (Money,Goods & Property)</h4>
       <div className="value-inputs">
         <p>Value of Gold & Silver you have : </p>
